@@ -9,7 +9,7 @@ from tasks import main_task
 from worker import make_celery
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = './uploads'
+app.config['UPLOAD_FOLDER'] = '/home/ubuntu/reckitt_benckiser_project/uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 
 app.secret_key = 'supersecretkey'
 
