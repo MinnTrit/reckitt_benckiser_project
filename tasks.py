@@ -6,7 +6,7 @@ import os
 broker_url = os.getenv('broker_url')
 app = Celery('tasks', broker=broker_url)
 
-@app.task
+@app.task(queue='reckitt_benckiser_offline')
 def main_task(file_path):
     print(f'Received file path {file_path}')
     host = os.getenv('instance_host')
