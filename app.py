@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect, url_for, flash, make_response
+from flask import Flask, request, jsonify, redirect, url_for, flash, make_response, render_template
 from werkzeug.utils import secure_filename
 import os
 import time
@@ -29,15 +29,7 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    return '''
-    <!doctype html>
-    <title>Upload File</title>
-    <h1>Upload a File</h1>
-    <form method="post" action="/upload" enctype="multipart/form-data">
-      <input type="file" name="file">
-      <input type="submit" value="Upload">
-    </form>
-    '''
+    return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
